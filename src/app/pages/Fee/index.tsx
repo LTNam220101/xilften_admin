@@ -20,6 +20,7 @@ import {
   ImageField,
 } from 'react-admin';
 import BookIcon from '@mui/icons-material/Book';
+import './style.css';
 export const FeeIcon = BookIcon;
 
 interface Props {}
@@ -27,9 +28,9 @@ interface Props {}
 export const FeeList = () => (
   <List>
     <Datagrid>
-      <ImageField source="image" title="name"/>
+      <ImageField source="image" title="name" />
       <TextField source="name" />
-      <TextField source="descriptions" />
+      <TextField source="descriptions" sx={{ width: 600 }} />
       <TextField source="views" />
       <TextField source="ratingAverage" />
       <TextField source="ratingQuantity" />
@@ -49,31 +50,31 @@ const FeeTitle = () => {
 
 export const FeeEdit = () => (
   <Edit title={<FeeTitle />}>
-    <SimpleForm>
-      <TextInput disabled source="id" />
-      <TextInput source="name" />
-      <TextInput source="image" />
-      <TextInput source="descriptions" multiline />
-      <TextInput source="url" />
-      <DateInput source="createdAt" />
-      <TextInput source="categories" />
-      <TextInput source="actors" />
-      <TextInput source="voteAverage" />
-      <TextInput source="voteQuantity" />
+    <SimpleForm sx={{ width: '80%' }}>
+      <TextInput disabled source="id" sx={{ width: '100%' }} />
+      <TextInput source="name" sx={{ width: '100%' }} />
+      <TextInput source="image" sx={{ width: '100%' }} />
+      <TextInput source="descriptions" multiline sx={{ width: '100%' }} />
+      <TextInput source="url" sx={{ width: '100%' }} />
+      <DateInput source="createdAt" sx={{ width: '100%' }} />
+      <TextInput source="categories" sx={{ width: '100%' }} />
+      <TextInput source="actors" sx={{ width: '100%' }} />
+      <TextInput source="voteAverage" sx={{ width: '100%' }} />
+      <TextInput source="voteQuantity" sx={{ width: '100%' }} />
     </SimpleForm>
   </Edit>
 );
 
 export const FeeCreate = () => (
   <Create title="Create a movie">
-    <SimpleForm>
-      <TextInput source="name" />
-      <TextInput source="image" />
-      <TextInput multiline source="descriptions" />
-      <TextInput source="url" />
-      <DateInput source="createdAt" />
-      <TextInput source="categories" />
-      <TextInput source="actors" />
+    <SimpleForm sx={{ width: '80%' }}>
+      <TextInput source="name" sx={{ width: '100%' }} />
+      <TextInput source="image" sx={{ width: '100%' }} />
+      <TextInput multiline source="descriptions" sx={{ width: '100%' }} />
+      <TextInput source="url" sx={{ width: '100%' }} />
+      <DateInput source="createdAt" sx={{ width: '100%' }} />
+      <TextInput source="categories" sx={{ width: '100%' }} />
+      <TextInput source="actors" sx={{ width: '100%' }} />
     </SimpleForm>
   </Create>
 );

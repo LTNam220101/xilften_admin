@@ -10,16 +10,13 @@ import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { BrowserRouter } from 'react-router-dom';
 import { fetchUtils, Admin, Resource } from 'react-admin';
-import drfProvider from 'ra-data-django-rest-framework';
-import simpleRestProvider from 'ra-data-simple-rest';
 import myDataProvider from '../myDataProvider';
 
 import { FeeList, FeeEdit, FeeCreate, FeeIcon } from './pages/Fee';
+import { UserList, UserEdit, UserCreate, UserIcon } from './pages/User';
 
 import { GlobalStyle } from 'styles/global-styles';
 
-import { HomePage } from './pages/HomePage/Loadable';
-import { NotFoundPage } from './components/NotFoundPage/Loadable';
 import { useTranslation } from 'react-i18next';
 
 export function App() {
@@ -32,10 +29,7 @@ export function App() {
     options.headers.set('Access-Control-Expose-Headers', 'Content-Range');
     return fetchUtils.fetchJson(url, options);
   };
-  const dataProvider = myDataProvider(
-    `http://localhost:3001`,
-    fetchJson
-  );
+  const dataProvider = myDataProvider(`http://localhost:3001`, fetchJson);
   // const test = async () => {
   //   const data = await dataProvider.getList('movie', {
   //     pagination: { page: 1, perPage: 5 },
@@ -62,6 +56,13 @@ export function App() {
           edit={FeeEdit}
           create={FeeCreate}
           icon={FeeIcon}
+        />
+        <Resource
+          name="user"
+          list={UserList}
+          edit={UserEdit}
+          create={UserCreate}
+          icon={UserIcon}
         />
       </Admin>
       <GlobalStyle />
